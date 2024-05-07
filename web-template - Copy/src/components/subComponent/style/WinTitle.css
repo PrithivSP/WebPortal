@@ -1,0 +1,25 @@
+.title-wrapper {
+    font-family: "Jersey 15", sans-serif;
+    border: 2px solid black;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #000080;
+    color: white;
+}
+
+.title-wrapper .title {
+    margin: 0;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+.btn-group button{
+    background-color: #C0C0C0;
+    margin-right: 5px;
+}

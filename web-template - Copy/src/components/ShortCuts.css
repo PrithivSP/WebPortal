@@ -1,0 +1,124 @@
+/* .shortcut-conts {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shortcut-conts ul {
+  list-style: none;
+}
+
+.shortcut-conts li {
+  font-size: 30px;
+  margin-top: 100px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.shortcut-conts li a svg:hover {
+  scale: 1.5;
+}
+
+.icon-fb {
+  color: blue;
+  background-color: transparent;
+  border: 0;
+}
+
+.icon-fb:hover {
+  filter: drop-shadow(5px 5px 5px blue);
+}
+
+.icon-wa {
+  color: green;
+  background-color: transparent;
+  border: 0;
+}
+
+.icon-wa:hover {
+  filter: drop-shadow(5px 5px 5px green);
+}
+
+.icon-insta {
+  color: deeppink;
+  background-color: transparent;
+  border: 0;
+}
+
+.icon-insta:hover {
+  filter: drop-shadow(5px 5px 5px deeppink);
+}
+
+.icon-reddit {
+  color: red;
+  background-color: transparent;
+  border: 0;
+}
+
+.icon-reddit:hover {
+  filter: drop-shadow(5px 5px 5px red);
+} */
+
+.shortcut-conts {
+  position: relative;
+}
+
+.shortcut-conts ul{
+  margin: 0;
+  margin-left: 0.5em;
+  margin-top: 1em;
+  padding: 0;
+  list-style: none;
+}
+
+.shortcut-conts li{
+  width: 80px;
+  height: 70px;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.shortcut-conts li:hover{
+  background: rgb(194, 194, 194);
+  opacity: 0.8;
+}
+
+.shortcut-conts li p{
+  margin: 0;
+  padding: 0;
+}
+
+.icon-fb {
+  font-size: 34px;
+  color: #207BF3;
+}
+
+.icon-wa {
+  font-size: 34px;
+  color: #4BC658;
+}
+
+.icon-insta {
+  font-size: 32px;
+  color: #bc1888;
+}
+
+.icon-reddit {
+  font-size: 34px;
+  color: #FF4B08;
+}
+
+.icon-yt-download {
+  font-size: 32px;
+  color: #FF0000;
+}
+
+.ytD-cont {
+  width: 100%;
+  height: 100%;
+}

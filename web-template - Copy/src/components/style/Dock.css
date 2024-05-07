@@ -1,0 +1,37 @@
+.dock-wrapper {
+    background-color: bisque;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.left {
+    display: flex;
+    justify-content: center;align-items: center;
+}
+
+.left img{
+    width: 20px;
+}
+
+.time-cont {
+    font-size: 12px;
+    padding-right: 10px;
+    text-align: center;
+    color: black;
+}
+
+.right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.themeChange {
+    margin-right: 1em;
+}

@@ -1,0 +1,70 @@
+/* div {
+  outline: 1px solid saddlebrown;
+}
+.App {
+  display: flex;
+}
+
+.app-inputfield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.app-inputfield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.app-shortcut {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+ body {
+  /* background-image: url('./assets/RetroBg.jpg'); */
+  background-image: url('https://uploads-ssl.webflow.com/5c29ef1e1110ec7a5b041ba2/5c29ef1e1110eca86e041c10_bg-win.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 00;
+  font-style: normal;
+ }
+
+ .App {
+  height: 100%;
+ }
+
+ div, p, img, ul, li {
+  /* outline: 2px solid black; */
+ }
+
+ .hidden {
+  display: none;
+ }
+
+ .screen {
+  display: grid;
+  column-gap: 1em;
+  grid-template-columns: 10% 80%;
+  height: 100%;
+ }
+
+ .app-inputfield {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }

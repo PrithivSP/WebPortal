@@ -1,0 +1,11 @@
+.weather-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.weather-wrapper p{
+    margin: 0;
+    font-size: 12px;
+}
