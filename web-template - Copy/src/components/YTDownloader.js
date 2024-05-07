@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./style/YTDownloader.css";
 import WinTitle from "./subComponent/WinTitle";
 import "./ShortCuts";
-// const fs = require("fs");
-// const ytdl = require("ytdl-core");
+import axios from "axios";
 
 function YTDownloader({ visibilityP, onClose }) {
+  const [data, setData] = useState(null);
   const [ytUrl, setYtUrl] = useState("");
   const [visibility, setVisibility] = useState(visibilityP);
+
   useEffect(() => {
     setVisibility(visibilityP);
   }, [visibilityP]);
@@ -15,13 +16,16 @@ function YTDownloader({ visibilityP, onClose }) {
     setYtUrl(e.target.value);
   }
 
-  function handleYtDownload() {
-    // ytdl("http://www.youtube.com/watch?v=aqz-KE-bpKQ").pipe(
-    //   fs.createWriteStream("video.mp4")
-    // );
-  }
+  const handleDownload = async () => {
+    const data = await axios.get(
+      `http://localhost:4000/download?url=${ytUrl}`
+    );
+    setData(data);
+    setYtUrl("");
+  };
 
   function handleCancel() {
+    setData(null);
     onClose();
   }
 
@@ -40,7 +44,7 @@ function YTDownloader({ visibilityP, onClose }) {
             value={ytUrl}
             onChange={(e) => handleUrlChange(e)}
           />
-          <button onClick={handleYtDownload} className="download-btn">
+          <button onClick={handleDownload} className="download-btn">
             :D
           </button>
         </div>
@@ -52,6 +56,38 @@ function YTDownloader({ visibilityP, onClose }) {
           Note: Users are accountable for adhering to the terms, conditions, and
           copyright regulations set by the platforms they utilize to obtain
           content.
+        </div>
+        <br />
+        <div>
+          {data !== null ? (
+            <div>
+              <div className="my-4">
+                <iframe
+                  width="570"
+                  height="320"
+                  src={`${data.data.url}`}
+                  title="video"
+                />
+              </div>
+              <div>
+                {data?.data.info.map((formatName, index) => (
+                  <div className="formats" key={index}>
+                    <a
+                      href={formatName.url}
+                      target="_blank"
+                      download
+                      className=" outline-none italic underline"
+                    >
+                      {formatName.mimeType.split(";")[0] + "  "}
+                      {formatName.hasVideo ? formatName.height + "p" : ""}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className=" text-red-700 font-bold mt-10">No download yet</div>
+          )}
         </div>
       </div>
     </div>

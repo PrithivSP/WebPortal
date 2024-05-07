@@ -8,7 +8,7 @@
     font-family: 'Times New Roman', Times, serif;
     padding: 5px;
     border: 1px solid white;
-    
+    overflow: auto;
 }
 
 
@@ -35,4 +35,9 @@
 
 .download-btn {
     margin-left: 10px;
+}
+
+.formats {
+    margin: 5px;
+    display: inline-block;
 }
