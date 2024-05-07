@@ -53,11 +53,11 @@ export default function ShortCuts() {
           
           <p>YTDownloader</p>
         </li>
-        <li>
+        {/* <li>
             <TiSocialInstagram className="icon-yt-download" onClick={handleVisibilityIgD}/>
           
           <p>IGDownloader</p>
-        </li>
+        </li> */}
       </ul>
       <div className="ytD-cont">
         { <YTDownloader onClick={handleVisibilityYtD} onClose={handleVisibilityYtD} visibilityP={visibilityYtD}/>} 
