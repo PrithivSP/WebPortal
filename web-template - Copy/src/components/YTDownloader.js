@@ -16,9 +16,9 @@ function YTDownloader({ visibilityP, onClose }) {
     setYtUrl(e.target.value);
   }
 
-  const handleDownload = async () => {
+  const handleYTDownload = async () => {
     const data = await axios.get(
-      `http://localhost:4000/download?url=${ytUrl}`
+      `http://localhost:4000/ytdownload?url=${ytUrl}`
     );
     setData(data);
     setYtUrl("");
@@ -44,7 +44,7 @@ function YTDownloader({ visibilityP, onClose }) {
             value={ytUrl}
             onChange={(e) => handleUrlChange(e)}
           />
-          <button onClick={handleDownload} className="download-btn">
+          <button onClick={handleYTDownload} className="download-btn">
             :D
           </button>
         </div>

@@ -1,0 +1,43 @@
+.igD-wrapper {
+    width: 40%;
+    height: 50%;
+    position: fixed;
+    transform: translate(70%, 50%);
+    top: 0;
+    background-color: #C0C0C0;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    border: 1px solid white;
+    overflow: auto;
+}
+
+
+.content {
+    margin-top: 0.5em;
+    background-color: white;
+    padding: 1em;
+    outline: 2px solid black;
+    height: 80%;
+}
+
+.dis {
+    margin-top: 1em;
+}
+
+.url .title{
+    margin: 0;
+}
+
+.url .input{
+    outline: 1px solid black;
+    margin-top: 10px;
+}
+
+.download-btn {
+    margin-left: 10px;
+}
+
+.formats {
+    margin: 5px;
+    display: inline-block;
+}
