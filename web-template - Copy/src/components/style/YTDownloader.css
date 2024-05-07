@@ -8,7 +8,7 @@
     font-family: 'Times New Roman', Times, serif;
     padding: 5px;
     border: 1px solid white;
-    overflow: auto;
+    overflow-y: scroll;
 }
 
 
@@ -17,7 +17,8 @@
     background-color: white;
     padding: 1em;
     outline: 2px solid black;
-    height: 80%;
+    /* height: 80%; */
+    
 }
 
 .dis {

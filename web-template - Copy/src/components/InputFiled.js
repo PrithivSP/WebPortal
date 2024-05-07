@@ -118,6 +118,7 @@ export default function InputFiled() {
       console.log(e);
     }
     searchInputDOM.forEach((input) => (input.value = ""));
+    aiContDOM.classList.remove("hidden");
   }
 
   function handelInputButtonEnterk(e) {
@@ -167,16 +168,6 @@ export default function InputFiled() {
           <option value="dictionary">dictionary</option>
           <option value="gemini">Gemini</option>
         </select>
-      </div>
-      <div className="exten-cont-dict hidden">
-        {searchInputDicWord != [] && (
-          <DictContentFun
-            dictTitle={searchInputDicWord}
-            dictDescription={searchInputDicDes}
-            dictPOS={searchInputDicPOS}
-            dictBtnFun={HandleDictCancleBtn}
-          />
-        )}
       </div>
       <div className="exten-cont-dict hidden">
         {searchInputDicWord != [] && (
