@@ -7,9 +7,12 @@ import { TfiYoutube } from "react-icons/tfi";
 import "./ShortCuts.css";
 import YTDownloader from "./YTDownloader";
 // import IGDownloader from "./IGDownloader";
-import { TiSocialInstagram } from "react-icons/ti";
+// import { TiSocialInstagram } from "react-icons/ti";
+import { ImNewTab } from "react-icons/im";
 
 export default function ShortCuts() {
+
+  const hostLink = window.location.host;
 
   let [visibilityYtD, setVisibilityYtD] = useState(false);
   // let [visibilityIgD, setVisibilityIgD] = useState(false);
@@ -23,6 +26,12 @@ export default function ShortCuts() {
   return (
     <div className="shortcut-conts">
       <ul>
+        <li>
+          <a href={`http://${hostLink}/`} target="_blank" rel="n">
+            <ImNewTab className="icon-fb" />
+          </a>
+          <p>New Tab</p>
+        </li>
         <li>
           <a href="https://www.facebook.com" target="_blank" rel="n">
             <FaFacebookSquare className="icon-fb" />
@@ -49,8 +58,8 @@ export default function ShortCuts() {
         </li>
 
         <li>
-            <TfiYoutube className="icon-yt-download" onClick={handleVisibilityYtD}/>
-          
+          <TfiYoutube className="icon-yt-download" onClick={handleVisibilityYtD} />
+
           <p>YTDownloader</p>
         </li>
         {/* <li>
@@ -60,7 +69,7 @@ export default function ShortCuts() {
         </li> */}
       </ul>
       <div className="ytD-cont">
-        { <YTDownloader onClick={handleVisibilityYtD} onClose={handleVisibilityYtD} visibilityP={visibilityYtD}/>} 
+        {<YTDownloader onClick={handleVisibilityYtD} onClose={handleVisibilityYtD} visibilityP={visibilityYtD} />}
       </div>
       {/* <div className="igD-cont">
         { <IGDownloader onClick={handleVisibilityIgD} onClose={handleVisibilityIgD} visibilityP={visibilityIgD}/>} 
