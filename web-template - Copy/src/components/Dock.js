@@ -4,7 +4,7 @@ import './style/Dock.css'
 import ThemeChange from './ThemeChange';
 import Weather from './Weather';
 
-function Dock() {
+function Dock({onDivClick}) {
     let [currentTime, setCurrentTime] = useState(new Date());
     useEffect(()=>{
         let timeId = setInterval(()=>tick(), 1000);
@@ -19,7 +19,7 @@ function Dock() {
   return (
     <div className='dock-wrapper'>
         <div className="left">
-            <button>
+            <button onClick={onDivClick}>
                 <img src={oldComputerImage} alt="" />
             </button>
         </div>

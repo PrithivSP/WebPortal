@@ -4,8 +4,16 @@ import ShortCuts from "./components/ShortCuts";
 import LoginPage from "./components/LoginPage";
 import SignUp from "./components/SignUp";
 import Dock from "./components/Dock";
+import { useState } from "react";
+import WindowsDiv from "./components/WindowsDiv";
 
 function App() {
+  const [openDiv, setOpenDiv] = useState(false);
+
+  function showDiv() {
+    setOpenDiv(!openDiv);
+  }
+
   return (
     // <div className="">
       // {/* <h1>Hi, UserName</h1> */}
@@ -19,10 +27,12 @@ function App() {
           <div className="app-inputfield">
             <InputFiled />
           </div>
+
+          <WindowsDiv divVisibility={openDiv}/>
         </div>
 
         <div className="dock-cont">
-          <Dock />
+          <Dock onDivClick={showDiv} />
         </div>
 
     </div>
