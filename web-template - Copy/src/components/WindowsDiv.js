@@ -11,25 +11,25 @@ function WindowsDiv({divVisibility}) {
       </div>
       <div className="right">
         <ul className="program-lists">
-        <li>
-        <span><MdOutlineHistory /></span>
-            History
-        <span className='arrow'><LiaArrowRightSolid /></span>
+          <li>
+          <span><MdOutlineHistory /></span>
+              History
+          <span className='arrow'><LiaArrowRightSolid /></span>
           </li>
-        <li>
-            Programs
-            <span className='arrow'><LiaArrowRightSolid /></span>
+          <li>
+              Home
+              <span className='arrow'><LiaArrowRightSolid /></span>
           </li>
-        <li>
-            Documents
-            <span className='arrow'><LiaArrowRightSolid /></span>
+          <li>
+              About Us
+              <span className='arrow'><LiaArrowRightSolid /></span>
           </li>
           <li>
             Settings
           </li>
-          <li>
+          {/* <li>
             Find
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

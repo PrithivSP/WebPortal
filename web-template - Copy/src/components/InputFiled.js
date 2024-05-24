@@ -35,10 +35,6 @@ export default function InputFiled() {
     }
   }
 
-  function handleClickForHistory() {
-
-  }
-
   async function handelInputButtonClick() {
     console.log(searchInput);
     if (searchEngineInput === "google") {
@@ -63,10 +59,12 @@ export default function InputFiled() {
         searchInput,
         searchEngineInput,
       });
-    } catch (e) {
-        console.log(e);
+    } catch (error) {
+      console.error(error);
     }
+    searchInputDOM.forEach((input) => (input.value = ""));
   }
+
   async function handleDictionaryInput() {
     console.log(searchInputDOM[0].value);
     try {
@@ -144,7 +142,7 @@ export default function InputFiled() {
             setSearchInput(e.target.value);
           }}
           onKeyDown={(e) => handelInputButtonEnterk(e)}
-          onClick={handleClickForHistory}
+          // onClick={handleClickForHistory}
         />
         <button
           className="input-cont-btn"

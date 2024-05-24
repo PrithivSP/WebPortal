@@ -1,39 +1,28 @@
 const express = require('express')
-// const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyparser = require('body-parser')
 const ytdl = require('ytdl-core')
-const request = require('request')
+// const connection = require('./db')
+const mongoose = require('mongoose');
 
 const app = express()
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:false}))
 app.use(cors())
 
-/* mongoose.connect("mongodb+srv://prithivspn:prithivspn@cluster0.3vn6ltw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(()=> {
-    console.log("connection made");
-})
+mongoose.connect("mongodb+srv://indujanyogeswaran:1024webflow@web-flow.x8gyun8.mongodb.net/?retryWrites=true&w=majority&appName=web-flow", {
+    useNewUrlParser: true, useUnifiedTopology: true
+});
 
 const db = mongoose.connection;
 
-const historyModel = new mongoose.Schema({
+const UserHistoryModel = new mongoose.Schema({
     query: String,
-    engine: String,
+    engine: String
 })
 
-const HistoryModel = mongoose.model("history", historyModel);
+const HistoryModel = mongoose.model("history", UserHistoryModel)
 
-app.post('/search', async (req, res) => {
-    try {
-
-    } catch (e) {
-
-    }
-})
-
-app.listen('8001', () => {
-    console.log("Running server")
-}) */
 
 app.get('/ytdownload', async (req, res) => {
     try {
@@ -50,31 +39,47 @@ app.get('/ytdownload', async (req, res) => {
     }
 })
 
-app.get('/igdownload', async (req, res) => {
-    const url = req.body.url;
-    instaAPI(url).then((response) => {
-        if(response.url[0].ext == "mp4") {
-            downloadFile(res, response.url[0].url, "mp4");
-        } else {
-            downloadFile(res, response.url[0].url, "jpg");
+app.post("/search", async (req, res) => {
+    try {
+      if (!req.body.searchInput || !req.body.searchEngineInput) {
+        return res.status(400).json({ error: 'Missing required fields: searchInput and searchEngineInput' });
+      }
+      const newHistory = new HistoryModel({
+        query: req.body.searchInput,  // Access data using destructuring
+        engine: req.body.searchEngineInput
+      });
+      await newHistory.save();
+      res.status(201).json(newHistory); // Send the created document
+    } catch (error) {
+      console.error("Error saving data:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
+app.get('/history', async (req, res) => {
+    try {
+        const hist = await HistoryModel.find();
+
+        if (hist.length === 0) {
+            return res.json([]);
         }
-    })
+
+        const histData = hist.map(search => ({
+            query: search.query,
+            engine: search.engine
+        }));
+
+        res.json(histData);
+    } catch (error) {
+        console.error('Error fetching data');
+        res.status(500).json({
+            error: 'Error fetching history'
+        });
+    }
 })
 
-function downloadFile(res, url, ext) {
-    request(url, {encoding: null}, (error, response, body) => {
-        if (error || response.statusCode != 200) {
-            res.status(400).send("Error downloading post");
-            return;
-        }
+const port = process.env.PORT || 8001;
 
-        const fileName = Date.now() + "." + ext;
-        res.setHeader("Content-Type", "application/octet-stream");
-        res.setHeader("Content-Disposition", `attachment; filename="${fileName}"`);
-        res.send(body);
-    })
-}
-
-app.listen(4000, () => {
-    console.log(`Server is running on PORT: 4000`)
+app.listen(port, () => {
+    console.log(`Server is running on PORT: ${port}...`)
 })
